@@ -52,7 +52,7 @@ This component maintains a local copy of the monorepo, does a periodic pull and 
 
 ## Index Server
 
-This component is an HTTP service that speaks the python index protocol. It reads from the in-memory store maintained by the index builder for low latency serving and invokes the Build System Adapter to materialize wheels for serving. This will leverage it's own caching for latency optimization and will likely need distributed workers for parallelism.
+This component is an HTTP service that speaks the python index protocol. It reads from the in-memory store maintained by the index builder for low latency serving and invokes the Build System Adapter to materialize wheels for serving. This will leverage it's own caching for latency optimization and will likely need distributed workers for parallelism. To accomodate for build system latency in the request path, the goal will be to utilize intransitive builds, speculative builds as well as e.g. HTTP 503 or similar with a Retry-After header. It is unclear if pip supports this degree of retry robustness currently, but if not an upstream contribution to pip itself might be needed to accomodate.
 
 ## Build System Adapter
 
