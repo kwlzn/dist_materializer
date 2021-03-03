@@ -52,7 +52,7 @@ This component maintains a local copy of the monorepo, does a periodic pull and 
 
 ## Index Server
 
-This component is an HTTP service that speaks the python index protocol. It reads from the in-memory store maintained by the index builder for low latency serving.
+This component is an HTTP service that speaks the python index protocol. It reads from the in-memory store maintained by the index builder for low latency serving and invokes the Build System Adapter to materialize wheels for serving. This will leverage it's own caching for latency optimization and will likely need distributed workers for parallelism.
 
 ## Build System Adapter
 
