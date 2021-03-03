@@ -19,7 +19,7 @@ For example, the equivalent of e.g.:
 Given a magic prefix of e.g. "monorepo" - would be installed as e.g.:
 
 ```
-!pip install monorepo.src.python.some.group.cool_package
+pip install monorepo.src.python.some.group.cool_package
 ```
 
 ## Materialization
